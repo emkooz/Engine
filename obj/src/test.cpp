@@ -121,7 +121,6 @@ int main()
 	
 	glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_2D, texPyro);
-                // Set our "myTextureSampler" sampler to user Texture Unit 0
                 glUniform1i(TextureID, 0)
 	
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuf);
