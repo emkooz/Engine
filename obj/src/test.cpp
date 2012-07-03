@@ -49,10 +49,9 @@ int main()
 	//vertices.push_back (glm::vec3 (-1.0f , -1.0f , 0.0f));
 	//vertices.push_back (glm::vec3 (1.0f , -1.0f , 0.0f));
 	
-	GLuint PyroTex;
+	GLuint PyroTex = SOIL_load_image ("obj/pyro_red.png" , &width , &height , 0 , SOIL_LOAD_RGB);;
 	glGenTextures (1 , &PyroTex);
-	int width , height;
-	unsigned char * image;
+	GLuint TextureID  = glGetUniformLocation(programID, "texPyro");
 	
 		// Create Vertex Array Object
 	GLuint vao;
@@ -119,22 +118,29 @@ int main()
 	glEnableVertexAttribArray( posAttrib );
 	glVertexAttribPointer( posAttrib, 3, GL_FLOAT, GL_FALSE, 0, 0 );
 	
+	
+	glActiveTexture(GL_TEXTURE0);
+                glBindTexture(GL_TEXTURE_2D, texPyro);
+                // Set our "myTextureSampler" sampler to user Texture Unit 0
+                glUniform1i(TextureID, 0)
+	
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuf);
 	GLint texAttrib = glGetAttribLocation( shader, "texPyro" );
 	glEnableVertexAttribArray(texAttrib);
 	glVertexAttribPointer( texAttrib, 2, GL_FLOAT, GL_FALSE, 0, 0 );
 		glActiveTexture (GL_TEXTURE0);
 		glBindTexture (GL_TEXTURE_2D , PyroTex);
-			
+
 			image = SOIL_load_image ("obj/pyro_red.png" , &width , &height , 0 , SOIL_LOAD_RGB);
 			glTexImage2D (GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 , GL_RGB , GL_UNSIGNED_BYTE , image);
 			SOIL_free_image_data (image);
-			
+
 			glUniform1i (glGetUniformLocation (shader , "texPyro") , 0);
 			glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
 			glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
 			glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 			glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+	
     //glEnableVertexAttribArray(1);
    // glBindBuffer(GL_ARRAY_BUFFER,Buffers[1]);
    // glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,0,NULL);

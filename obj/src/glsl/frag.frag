@@ -8,3 +8,4 @@ uniform sampler2D texPyro;
 void main()
 {
 	outColor = texture2D( texPyro, Texcoord );
+}
