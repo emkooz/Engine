@@ -113,8 +113,6 @@ bool ModelLoader::ObjUV (const char * path, std::vector<glm::vec3> & out_vertice
                 {
                         glm::vec2 uv;
                         fscanf(file, "%f %f\n", &uv.x, &uv.y );
-                        uv.y = -uv.y;
-                        
                         temp_uvs.push_back(uv);
                         
                 }
