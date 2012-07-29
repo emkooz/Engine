@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/Engine.dir/src/main.cpp.o CMakeFiles/Engine.dir/src/Camera.cpp.o CMakeFiles/Engine.dir/src/Keys.cpp.o CMakeFiles/Engine.dir/src/Model.cpp.o  -o Engine -rdynamic -lGLU -lGL -lSM -lICE -lX11 -lXext -lGLEW -lglfw -Wl,-Bstatic -lSOIL -Wl,-Bdynamic 
