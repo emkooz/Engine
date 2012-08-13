@@ -7,12 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/bumrang/Engine/src/Camera.hpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
 
 /home/bumrang/Engine/src/Engine.hpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
 
 /home/bumrang/Engine/src/Includes.hpp
 GL/glew.h
@@ -24,8 +20,6 @@ glm/glm.hpp
 glm/gtc/matrix_transform.hpp
 -
 SOIL.h
--
-ft2build.h
 -
 FTGL/ftgl.h
 -
@@ -57,8 +51,6 @@ GL/glfw.h
 -
 
 /home/bumrang/Engine/src/Model.hpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
 
 /home/bumrang/Engine/src/main.cpp
 Includes.hpp

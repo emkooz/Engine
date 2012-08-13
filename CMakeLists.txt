@@ -44,7 +44,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmakemodules")
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(GLFW REQUIRED)
-find_package(FREETYPE REQUIRED)
+find_package(Freetype REQUIRED)
 find_package(SOIL REQUIRED)
 find_package(GLM REQUIRED)
 find_package(FTGL REQUIRED)
@@ -64,7 +64,7 @@ target_link_libraries(${GAME_TARGET}
                       ${OPENGL_LIBRARIES}
                       ${GLEW_LIBRARY}
                       ${GLFW_LIBRARIES}
-                      ${FREETPYE_LIBRARIES}
+                      ${FREETYPE_LIBRARIES}
                       ${SOIL_LIBRARIES}
-                      ${FTGL_LIBARY}
+                      ${FTGL_LIBRARY}
                 )

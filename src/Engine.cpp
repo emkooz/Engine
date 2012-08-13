@@ -1,4 +1,4 @@
-#include "Engine.hpp"
+#include "Includes.hpp"
 
 Engine::Engine (int width , int height)
 {
@@ -7,13 +7,11 @@ Engine::Engine (int width , int height)
 	if (!glfwInit())
 	{
 		std::cout << "GLFW failed to initialize!\n";
-		return 1;
 	}
 	glfwOpenWindow(Width,Height,0,0,0,0,32,0,GLFW_WINDOW);
 	if (glewInit() != GLEW_OK)
 	{
 		std::cout << "GLEW failed to initialize!\n";
-		return 1;
 	}
 	glfwSetWindowTitle("Engine");
 	glViewport(0,0,Width, Height);
@@ -23,6 +21,8 @@ Engine::Engine (int width , int height)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glClearColor(1,0,0,1);
+	
+	glfwSwapInterval (0);
 }
 
 int Engine::GetWidth()

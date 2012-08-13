@@ -6,8 +6,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <SOIL.h>
-#include <ft2build.h>
-#include FT_FREETYPE_H
+
 
 #include <FTGL/ftgl.h>
 

@@ -1,8 +1,6 @@
 #ifndef ENGINE
 #define ENGINE
 
-#include "Includes.hpp"
-
 class Engine
 {
 	private:
@@ -16,7 +14,7 @@ class Engine
 	void SetWidth(int w);
 	
 	int GetHeight();
-	void SetHight(int h);
+	void SetHeight(int h);
 };
 
 #endif

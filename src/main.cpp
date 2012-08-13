@@ -71,8 +71,12 @@ int main()
 	
 	
 	
-	
-	
+	std::ostringstream Convert;
+	float  FPSf;
+	std::string FPS;
+	double FPStime = glfwGetTime();
+	unsigned int uTime = (unsigned int)glfwGetTime();
+	int counter = 0;
 	
 	
 	
@@ -91,9 +95,29 @@ int main()
 	{
 		float DeltaTime = glfwGetTime() - LastTime; // Deltatime init
 		LastTime = glfwGetTime(); // update for deltatime
+		
+		FPStime = glfwGetTime() - uTime;
+		if (FPStime == 1 || FPStime > 1)
+		{
+			FPStime = 0;
+			//FPSf = counter;
+			counter = 0;
+			uTime = (unsigned int)glfwGetTime();
+			
+			FPSf = 1.0f / DeltaTime;
+			Convert << FPSf;
+		    FPS = Convert.str();
+		    
+		    
+		}
+		else
+			counter++;
 
 		
 		Camera.UpdateCamera (DeltaTime , Model);
+		
+		
+		
 		
 		if (Key.SinglePress ('E'))
 		{
@@ -153,8 +177,9 @@ glActiveTexture(GL_TEXTURE0);
 	glDisableVertexAttribArray(texAttrib);
  
 		
-	font.Render ("test");
+	font.Render (FPS.c_str() , FTPoint.X(40) , FTPoint.Y(40));
 		
+	
 		glfwSwapBuffers();
 
 		if (glfwGetKey (GLFW_KEY_ESC) || !glfwGetWindowParam(GLFW_OPENED))

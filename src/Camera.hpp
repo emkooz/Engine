@@ -1,8 +1,6 @@
 #ifndef CAMERA_HANDLER
 #define CAMERA_HANDLER
 
-#include "Includes.hpp"
-
 class Cam
 {
 

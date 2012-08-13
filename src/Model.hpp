@@ -1,8 +1,6 @@
 #ifndef MODEL_LOADER
 #define MODEL_LOADER
 
-#include "Includes.hpp"
-
 class ModelLoader
 {
 	private:
