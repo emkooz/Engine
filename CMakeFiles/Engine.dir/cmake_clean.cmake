@@ -3,6 +3,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Engine.dir/src/Camera.cpp.o"
   "CMakeFiles/Engine.dir/src/Keys.cpp.o"
   "CMakeFiles/Engine.dir/src/Model.cpp.o"
+  "CMakeFiles/Engine.dir/src/Engine.cpp.o"
   "Engine.pdb"
   "Engine"
 )

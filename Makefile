@@ -135,6 +135,30 @@ src/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Camera.cpp.s
 .PHONY : src/Camera.cpp.s
 
+src/Engine.o: src/Engine.cpp.o
+.PHONY : src/Engine.o
+
+# target to build an object file
+src/Engine.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Engine.cpp.o
+.PHONY : src/Engine.cpp.o
+
+src/Engine.i: src/Engine.cpp.i
+.PHONY : src/Engine.i
+
+# target to preprocess a source file
+src/Engine.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Engine.cpp.i
+.PHONY : src/Engine.cpp.i
+
+src/Engine.s: src/Engine.cpp.s
+.PHONY : src/Engine.s
+
+# target to generate assembly for a file
+src/Engine.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Engine.cpp.s
+.PHONY : src/Engine.cpp.s
+
 src/Keys.o: src/Keys.cpp.o
 .PHONY : src/Keys.o
 
@@ -219,6 +243,9 @@ help:
 	@echo "... src/Camera.o"
 	@echo "... src/Camera.i"
 	@echo "... src/Camera.s"
+	@echo "... src/Engine.o"
+	@echo "... src/Engine.i"
+	@echo "... src/Engine.s"
 	@echo "... src/Keys.o"
 	@echo "... src/Keys.i"
 	@echo "... src/Keys.s"

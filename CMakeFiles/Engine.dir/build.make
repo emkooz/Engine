@@ -141,12 +141,36 @@ CMakeFiles/Engine.dir/src/Model.cpp.o.provides: CMakeFiles/Engine.dir/src/Model.
 
 CMakeFiles/Engine.dir/src/Model.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Model.cpp.o
 
+CMakeFiles/Engine.dir/src/Engine.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Engine.cpp.o: src/Engine.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bumrang/Engine/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Engine.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Engine.cpp.o -c /home/bumrang/Engine/src/Engine.cpp
+
+CMakeFiles/Engine.dir/src/Engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Engine.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/bumrang/Engine/src/Engine.cpp > CMakeFiles/Engine.dir/src/Engine.cpp.i
+
+CMakeFiles/Engine.dir/src/Engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Engine.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/bumrang/Engine/src/Engine.cpp -o CMakeFiles/Engine.dir/src/Engine.cpp.s
+
+CMakeFiles/Engine.dir/src/Engine.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Engine.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Engine.cpp.o.provides: CMakeFiles/Engine.dir/src/Engine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Engine.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Engine.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Engine.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Engine.cpp.o
+
 # Object files for target Engine
 Engine_OBJECTS = \
 "CMakeFiles/Engine.dir/src/main.cpp.o" \
 "CMakeFiles/Engine.dir/src/Camera.cpp.o" \
 "CMakeFiles/Engine.dir/src/Keys.cpp.o" \
-"CMakeFiles/Engine.dir/src/Model.cpp.o"
+"CMakeFiles/Engine.dir/src/Model.cpp.o" \
+"CMakeFiles/Engine.dir/src/Engine.cpp.o"
 
 # External object files for target Engine
 Engine_EXTERNAL_OBJECTS =
@@ -155,6 +179,7 @@ Engine: CMakeFiles/Engine.dir/src/main.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Camera.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Keys.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Model.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Engine.cpp.o
 Engine: CMakeFiles/Engine.dir/build.make
 Engine: /usr/lib/libGLU.so
 Engine: /usr/lib/libGL.so
@@ -177,6 +202,7 @@ CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/main.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Camera.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Keys.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Model.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Engine.cpp.o.requires
 .PHONY : CMakeFiles/Engine.dir/requires
 
 CMakeFiles/Engine.dir/clean:

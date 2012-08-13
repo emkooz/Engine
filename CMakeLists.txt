@@ -35,6 +35,7 @@ set(source
     src/Camera.cpp
     src/Keys.cpp
     src/Model.cpp
+    src/Engine.cpp
     )
 
 # GAME
@@ -43,15 +44,19 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmakemodules")
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(GLFW REQUIRED)
+find_package(FREETYPE REQUIRED)
 find_package(SOIL REQUIRED)
 find_package(GLM REQUIRED)
+find_package(FTGL REQUIRED)
 
 
 include_directories(${OPENGL_INCLUDE_DIR}
                     ${GLEW_INCLUDE_PATH}
                     ${GLFW_INCLUDE_DIRS}
+                    ${FREETYPE_INCLUDE_DIRS}
                     ${SOIL_INCLUDE_DIR}
-                    ${GLM_INCLUDE_DIR})
+                    ${GLM_INCLUDE_DIR}
+                    ${FTGL_INCLUDE_DIR})
 
 set(GAME_TARGET "Engine")
 add_executable(${GAME_TARGET} ${source})
@@ -59,5 +64,7 @@ target_link_libraries(${GAME_TARGET}
                       ${OPENGL_LIBRARIES}
                       ${GLEW_LIBRARY}
                       ${GLFW_LIBRARIES}
+                      ${FREETPYE_LIBRARIES}
                       ${SOIL_LIBRARIES}
+                      ${FTGL_LIBARY}
                 )

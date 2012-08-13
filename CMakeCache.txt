@@ -161,6 +161,24 @@ Engine_BINARY_DIR:STATIC=/home/bumrang/Engine
 //Value Computed by CMake
 Engine_SOURCE_DIR:STATIC=/home/bumrang/Engine
 
+//The directory containing a CMake configuration file for FREETYPE.
+FREETYPE_DIR:PATH=FREETYPE_DIR-NOTFOUND
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/include/freetype2
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_ft2build:PATH=/usr/include
+
+//Path to a library.
+FREETYPE_LIBRARY:FILEPATH=/usr/lib/libfreetype.so
+
+//Path to a file.
+FTGL_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+FTGL_LIBRARY:FILEPATH=/usr/lib/libftgl.so
+
 //Set to 1 if GLEW is found, 0 otherwise
 GLEW_FOUND:STRING=1
 
@@ -516,12 +534,20 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Freetype
+FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[/usr/lib/libfreetype.so][/usr/include;/usr/include/freetype2][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/libGL.so][v()]
 //Details about finding SOIL
 FIND_PACKAGE_MESSAGE_DETAILS_SOIL:INTERNAL=[/usr/lib/libSOIL.a][/usr/include][v()]
 //Details about finding X11
 FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/usr/lib/libX11.so][/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include;/usr/include]
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_freetype2
+FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_ft2build
+FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_LIBRARY
+FREETYPE_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_FOUND
 GLEW_FOUND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_INCLUDE_DIR
