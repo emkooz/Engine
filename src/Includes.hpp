@@ -2,6 +2,7 @@
 #ifndef INCLUDES
 #define INCLUDES
 
+//External libraries.
 #include <GL/glew.h>
 #include <GL/glfw.h>
 #include <glm/glm.hpp>
@@ -10,8 +11,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include <oglft/OGLFT.h>
-
+//Standard libraries.
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -20,25 +20,19 @@
 #include <math.h>
 #include <sstream>
 
-
+//Classes/Namespaces.
 #include "Camera.hpp"
 #include "Keys.hpp"
 #include "Model.hpp"
 #include "Text.hpp"
 #include "Engine.hpp"
 
+//Global classes.
+static Engine Game(800 , 600); // Game class, init's everything and handles window stuff.
 
-static Engine Game(800 , 600);
-
-static Cam Camera;
-static Keys Key;
-static ModelLoader obj;
-static FTText Text;
-
-// Create a pixmap font from a TrueType file.
-static OGLFT::Monochrome* font;
-
-
-
+static Cam Camera; // Camera class.
+static Keys Key; // Key input handling class.
+static ModelLoader obj; // Model loading class **TEMPORARY**
+static FTText Text; // Text class (not working yet fffff)
 
 #endif

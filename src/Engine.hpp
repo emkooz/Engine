@@ -11,6 +11,7 @@ class Engine
 	
 	public:
 	Engine(int width, int height);
+	GLuint LoadShaders(const char * vert , const char * frag);
 };
 
 #endif

@@ -12,6 +12,8 @@ class FTText
 	int GetPixelSize();
 	void SetPixelSize(int size);
 	
+	void SetColor(GLfloat c[4]);
+	
 	private:
 	FT_Library ft;
 	FT_Face face;
@@ -22,6 +24,12 @@ class FTText
 	
 	GLuint vbo;
 	GLuint uv;
+	
+	GLuint shader;	
+	GLint CoordUniform;
+	GLint TexUniform;
+	GLint ColorUniform;
+	//GLfloat color[4];
 	
 	glm::mat4 Model;
 	

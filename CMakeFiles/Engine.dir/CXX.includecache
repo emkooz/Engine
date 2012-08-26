@@ -6,15 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/bumrang/Engine/src/Camera.cpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
-
 /home/bumrang/Engine/src/Camera.hpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
-
-/home/bumrang/Engine/src/Engine.cpp
 Includes.hpp
 /home/bumrang/Engine/src/Includes.hpp
 
@@ -34,8 +26,6 @@ glm/gtc/matrix_transform.hpp
 SOIL.h
 -
 ft2build.h
--
-OGLFT.h
 -
 iostream
 -
@@ -65,10 +55,6 @@ Engine.hpp
 /home/bumrang/Engine/src/Keys.hpp
 GL/glfw.h
 -
-
-/home/bumrang/Engine/src/Model.cpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
 
 /home/bumrang/Engine/src/Model.hpp
 Includes.hpp

@@ -7,27 +7,21 @@ static unsigned int Height = 600;
 
 // "//-" = disabled for testing.
 
-//font = new OGLFT::Texture ("font.ttf" , 24);
-
 
 int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 {	
-	
-	font = new OGLFT::Monochrome("font.ttf" , 24);
-	
 	bool CursorEnabled = true;
 	bool PolygonMode = false;
 	
 	std::vector <glm::vec3> vertices;
 	std::vector <glm::vec2> uv;
-	
 	std::vector <glm::vec3> pos;
 	
 	std::string FPS;
 	float fFPS;
+	std::ostringstream Convert;
 	
-	
-	// Enable depth test
+		// Enable depth test
         glEnable(GL_DEPTH_TEST);
         // Accept fragment if it closer to the camera than the former one
         glDepthFunc(GL_LESS); 
@@ -39,24 +33,15 @@ int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 	
 	int sx = Width / 2;
 	int sy = Height / 2;
-	
 	Text.UseFont ("font.ttf");
 	Text.SetPixelSize (48);
 	
-	
-	// Set the font size and render a small text.
-	
-	
-	std::ostringstream Convert;
-	
-
-
 	GLuint tex;
 	GLuint id = SOIL_load_OGL_texture("obj/pyro_red.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	glGenTextures (1 , &tex);
 	
 	
-		// Create Vertex Array Object
+	// Create Vertex Array Object
 	GLuint vao;
 	glGenVertexArrays( 1, &vao );
 	glBindVertexArray( vao );
@@ -71,8 +56,6 @@ int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 	glBindBuffer (GL_ARRAY_BUFFER, uvbuf);
 	glBufferData(GL_ARRAY_BUFFER, uv.size() * sizeof(glm::vec2), &uv[0], GL_STATIC_DRAW);
 	 
-	 
-	
 	
 	//GLuint shader = LoadShaders ("src/glsl/vert.vert" , "src/glsl/frag.frag");
 	//GLuint TextureID  = glGetUniformLocation(shader, "texPyro");
@@ -96,13 +79,10 @@ int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 		float DeltaTime = glfwGetTime() - LastTime; // Deltatime init
 		LastTime = glfwGetTime(); // update for deltatime
 
-		
 		Camera.UpdateCamera (DeltaTime , Model);
 		
 		fFPS = 1 / DeltaTime;
-		
 		Convert << fFPS;
-		
 		FPS = Convert.str();
 		
 		if (Key.SinglePress ('E'))
@@ -126,8 +106,7 @@ int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 			std::cout << "jump" << std::flush;
 		}
 		
-		
-		
+				
 		//std::cout << std::endl << tb.MBox.Pos.x << std::flush;
 		
 		glClearColor (0.0f , 0.0f , 0.0f , 1.0f);
@@ -147,34 +126,34 @@ int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 		
 			glDisableClientState (GL_VERTEX_ARRAY); --*/
 		
-		font->draw( -1, 1, FPS.c_str() );
+		
 		
 		
 	//	if (shader == NULL)
 		//{
 			
-			glEnableClientState (GL_VERTEX_ARRAY); 
-			glBindBuffer (GL_ARRAY_BUFFER , vbo);
-			glVertexPointer (3 , GL_FLOAT , 0 , NULL);
+			glEnableClientState (GL_VERTEX_ARRAY); // Enable vert array
+			glBindBuffer (GL_ARRAY_BUFFER , vbo); // bind the vbo
+			glVertexPointer (3 , GL_FLOAT , 0 , NULL); // pointer in the vbo
 			
-			glEnableClientState (GL_TEXTURE_COORD_ARRAY);
-		glBindBuffer (GL_ARRAY_BUFFER , uvbuf);
-		glTexCoordPointer (2 , GL_FLOAT , 0 , NULL);
+			glEnableClientState (GL_TEXTURE_COORD_ARRAY); // tex array
+		glBindBuffer (GL_ARRAY_BUFFER , uvbuf); // bind uv array
+		glTexCoordPointer (2 , GL_FLOAT , 0 , NULL); // tex pointer
 
-		glEnable (GL_TEXTURE_2D);
-		glBindTexture (GL_TEXTURE_2D , id);
+		glEnable (GL_TEXTURE_2D); // enable textures
+		glBindTexture (GL_TEXTURE_2D , id); // bind the texture
 		//glEnable(GL_BLEND);
 	//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);*/
-			glMatrixMode (GL_MODELVIEW);
-			glLoadMatrixf (&Camera.GetMVP()[0][0]);
+			glMatrixMode (GL_MODELVIEW); // go into the modelview matrix
+			glLoadMatrixf (&Camera.GetMVP()[0][0]); // load the current MVP
 		
-			glDrawArrays (GL_TRIANGLES , 0 , vertices.size());
+			glDrawArrays (GL_TRIANGLES , 0 , vertices.size()); // draw everything
 			
-			glDisable (GL_TEXTURE_2D);
+			glDisable (GL_TEXTURE_2D); // disable textures
 	//	glDisable(GL_BLEND);
 		
-		glDisableClientState (GL_VERTEX_ARRAY);
-			glDisableClientState (GL_TEXTURE_COORD_ARRAY);
+		glDisableClientState (GL_VERTEX_ARRAY); // disable arrays
+			glDisableClientState (GL_TEXTURE_COORD_ARRAY); // disable arrays
 		//}
 		
 		Text.RenderText("test",
@@ -285,106 +264,4 @@ int main() // TODO: Indexing. UPDATED TODO: Assimp does this, do text now.
 }
 
 
-GLuint LoadShaders (const char * vertex_file_path,const char * fragment_file_path)
-{
-		 // Create the shaders
-        GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
-        GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 
-        // Read the Vertex Shader code from the file
-        std::string VertexShaderCode;
-        std::ifstream VertexShaderStream (vertex_file_path);
-        if(VertexShaderStream.is_open()){
-                std::string Line = "";
-                while(getline(VertexShaderStream, Line))
-                        VertexShaderCode += "\n" + Line;
-                VertexShaderStream.close();
-        }
-
-        // Read the Fragment Shader code from the file
-        std::string FragmentShaderCode;
-        std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);
-        if(FragmentShaderStream.is_open()){
-                std::string Line = "";
-                while(getline(FragmentShaderStream, Line))
-                        FragmentShaderCode += "\n" + Line;
-                FragmentShaderStream.close();
-        }
-
-
-
-        GLint Result;
-        int InfoLogLength;
-
-
-
-        // Compile Vertex Shader
-        printf("Compiling shader: %s\n", vertex_file_path);
-        char const * VertexSourcePointer = VertexShaderCode.c_str();
-        glShaderSource(VertexShaderID, 1, &VertexSourcePointer , NULL);
-        glCompileShader(VertexShaderID);
-
-        // Check Vertex Shader
-        glGetShaderiv(VertexShaderID, GL_COMPILE_STATUS, &Result);
-        glGetShaderiv(VertexShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-        std::vector<char> VertexShaderErrorMessage(InfoLogLength);
-        glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
-        fprintf(stdout, "%s\n", &VertexShaderErrorMessage[0]);
-        
-        if (Result == GL_FALSE)
-        {
-			std::cout << "Vertex shader was unable to compile!\n";
-			return 0;
-		}
-
-
-
-
-        // Compile Fragment Shader
-        printf("Compiling shader: %s\n", fragment_file_path);
-        char const * FragmentSourcePointer = FragmentShaderCode.c_str();
-        glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer , NULL);
-        glCompileShader(FragmentShaderID);
-
-        // Check Fragment Shader
-        glGetShaderiv(FragmentShaderID, GL_COMPILE_STATUS, &Result);
-        glGetShaderiv(FragmentShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-        std::vector<char> FragmentShaderErrorMessage(InfoLogLength);
-        glGetShaderInfoLog(FragmentShaderID, InfoLogLength, NULL, &FragmentShaderErrorMessage[0]);
-        fprintf(stdout, "%s\n", &FragmentShaderErrorMessage[0]);
-
-
-		if (Result == GL_FALSE)
-		{
-			std::cout << "Fragment shader was unable to compile!\n";
-			return 0;
-		}
-
-
-
-        // Link the program
-        fprintf(stdout, "Linking program\n");
-        GLuint ProgramID = glCreateProgram();
-        glAttachShader(ProgramID, VertexShaderID);
-        glAttachShader(ProgramID, FragmentShaderID);
-        glLinkProgram(ProgramID);
-
-        // Check the program
-        glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-        glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-        std::vector<char> ProgramErrorMessage( std::max(InfoLogLength, int(1)) );
-        glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-        fprintf(stdout, "%s\n", &ProgramErrorMessage[0]);
-        
-        if (Result == GL_FALSE)
-        {
-			std::cout << "Shaders were unable to link!\n";
-			return 0;
-		}
-
-
-        glDeleteShader(VertexShaderID);
-        glDeleteShader(FragmentShaderID);
-
-        return ProgramID;
-}
