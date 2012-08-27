@@ -6,9 +6,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <SOIL.h>
-
-
-#include <FTGL/ftgl.h>
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
 #include <iostream>
 #include <fstream>
@@ -30,10 +29,7 @@ static Cam Camera;
 static Keys Key;
 static ModelLoader obj;
 
-
-// Create a pixmap font from a TrueType file.
-static FTGLPixmapFont font("font.ttf");
-
+static FT_Library ft;
 
 
 #endif

@@ -11,7 +11,6 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeSystem.cmake"
   "CMakeLists.txt"
-  "cmakemodules/FindFTGL.cmake"
   "cmakemodules/FindGLEW.cmake"
   "cmakemodules/FindGLFW.cmake"
   "cmakemodules/FindGLM.cmake"

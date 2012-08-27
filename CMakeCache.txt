@@ -161,9 +161,6 @@ Engine_BINARY_DIR:STATIC=/home/bumrang/Engine
 //Value Computed by CMake
 Engine_SOURCE_DIR:STATIC=/home/bumrang/Engine
 
-//The directory containing a CMake configuration file for FREETYPE.
-FREETYPE_DIR:PATH=FREETYPE_DIR-NOTFOUND
-
 //Path to a file.
 FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/include/freetype2
 
@@ -172,12 +169,6 @@ FREETYPE_INCLUDE_DIR_ft2build:PATH=/usr/include
 
 //Path to a library.
 FREETYPE_LIBRARY:FILEPATH=/usr/lib/libfreetype.so
-
-//Path to a file.
-FTGL_INCLUDE_DIR:PATH=/usr/include
-
-//Path to a library.
-FTGL_LIBRARY:FILEPATH=/usr/lib/libftgl.so
 
 //Set to 1 if GLEW is found, 0 otherwise
 GLEW_FOUND:STRING=1
@@ -405,6 +396,8 @@ X11_xf86vmode_INCLUDE_PATH:PATH=/usr/include
 
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_BUILD_TOOL
+CMAKE_BUILD_TOOL-ADVANCED:INTERNAL=1
 //What is the target build tool cmake is generating for.
 CMAKE_BUILD_TOOL:INTERNAL=/usr/bin/make
 //This is the directory where this CMakeCache.txt was created
@@ -535,7 +528,7 @@ CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Freetype
-FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[/usr/lib/libfreetype.so][/usr/include;/usr/include/freetype2][v2.4.9()]
+FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[/usr/lib/libfreetype.so][/usr/include;/usr/include/freetype2][v2.4.10()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/libGL.so][v()]
 //Details about finding SOIL

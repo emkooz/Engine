@@ -47,7 +47,7 @@ find_package(GLFW REQUIRED)
 find_package(Freetype REQUIRED)
 find_package(SOIL REQUIRED)
 find_package(GLM REQUIRED)
-find_package(FTGL REQUIRED)
+#find_package(ASSIMP REQUIRED)
 
 
 include_directories(${OPENGL_INCLUDE_DIR}
@@ -56,7 +56,7 @@ include_directories(${OPENGL_INCLUDE_DIR}
                     ${FREETYPE_INCLUDE_DIRS}
                     ${SOIL_INCLUDE_DIR}
                     ${GLM_INCLUDE_DIR}
-                    ${FTGL_INCLUDE_DIR})
+                    )
 
 set(GAME_TARGET "Engine")
 add_executable(${GAME_TARGET} ${source})
@@ -66,5 +66,4 @@ target_link_libraries(${GAME_TARGET}
                       ${GLFW_LIBRARIES}
                       ${FREETYPE_LIBRARIES}
                       ${SOIL_LIBRARIES}
-                      ${FTGL_LIBRARY}
                 )

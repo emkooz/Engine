@@ -8,6 +8,10 @@
 
 /home/bumrang/Engine/src/Camera.hpp
 
+/home/bumrang/Engine/src/Engine.cpp
+Includes.hpp
+/home/bumrang/Engine/src/Includes.hpp
+
 /home/bumrang/Engine/src/Engine.hpp
 
 /home/bumrang/Engine/src/Includes.hpp
@@ -21,7 +25,7 @@ glm/gtc/matrix_transform.hpp
 -
 SOIL.h
 -
-FTGL/ftgl.h
+ft2build.h
 -
 iostream
 -
@@ -51,8 +55,4 @@ GL/glfw.h
 -
 
 /home/bumrang/Engine/src/Model.hpp
-
-/home/bumrang/Engine/src/main.cpp
-Includes.hpp
-/home/bumrang/Engine/src/Includes.hpp
 

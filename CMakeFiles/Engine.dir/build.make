@@ -191,7 +191,6 @@ Engine: /usr/lib/libGLEW.so
 Engine: /usr/lib/libglfw.so
 Engine: /usr/lib/libfreetype.so
 Engine: /usr/lib/libSOIL.a
-Engine: /usr/lib/libftgl.so
 Engine: CMakeFiles/Engine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable Engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Engine.dir/link.txt --verbose=$(VERBOSE)
