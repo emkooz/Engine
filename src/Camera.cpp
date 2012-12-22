@@ -78,3 +78,43 @@ glm::mat4 Cam::GetMVP()
 {
 	return MVP;
 }
+
+glm::mat4 Cam::GetView()
+{
+	return View;
+}
+
+glm::mat4 Cam::GetProjection()
+{
+	return Projection;
+}
+
+		float Cam::GetSpeed()
+		{
+			return Speed;
+		}
+		
+		void Cam::SetSpeed(float sp)
+		{
+			Speed = sp;
+		}
+		
+		float Cam::GetMouseSpeed()
+		{
+			return MouseSpeed;
+		}
+		
+		void Cam::SetMouseSpeed(float sp)
+		{
+			MouseSpeed = sp;
+		}
+
+		float Cam::GetFoV()
+		{
+			return FoV;
+		}
+		
+		void Cam::SetFov(float fov)
+		{
+			FoV = fov;
+		}

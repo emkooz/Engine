@@ -2,15 +2,6 @@
 
 FTText::FTText()
 {
-	if(FT_Init_FreeType(&ft))
-			std::cout << "\nError loading the FreeType library.";
-			
-	UseFont ("DejaVuSerif.ttf");
-	
-	g = face->glyph;
-	
-	Game.LoadShaders("src/glsl/1.2/text.vert" , "src/glsl/1.2/text.frag");
-	
 	glGenBuffers (1 , &vbo);
 	glGenBuffers (1 , &uv);
 	glGenTextures (1 , &tex);
@@ -20,9 +11,25 @@ FTText::FTText()
 	ColorUniform = glGetAttribLocation (shader , "color");
 	
 	Model = glm::mat4 (1.0f);
+	
+	uvs.push_back (glm::vec2 (0 , 0));
+	uvs.push_back (glm::vec2 (1 , 0));
+	uvs.push_back (glm::vec2 (0 , 1));
+	uvs.push_back (glm::vec2 (1 , 1));
 
 }
 
+void FTText::Init()
+{
+		if(FT_Init_FreeType(&ft))
+			std::cout << "\nError loading the FreeType library.";
+			
+	UseFont ("DejaVuSerif.ttf");
+	
+	g = face->glyph;
+	
+	shader = Game.LoadShaders("src/glsl/1.2/text.vert" , "src/glsl/1.2/text.frag");
+}
 
 bool FTText::UseFont(const char * fp)
 {
@@ -84,8 +91,28 @@ void FTText::RenderText(const char *text, float x, float y, float SX, float SY)
 	}
 	
 	
-        id = g->bitmap.buffer;
+       
  
+    
+     
+    float x2 = x + g->bitmap_left * SX;
+    float y2 = -y - g->bitmap_top * SY;
+    float w = g->bitmap.width * SX;
+    float h = g->bitmap.rows * SY;
+		
+	
+GLfloat box[4] = {	
+			(x2,	 -y2	, 0, 0),
+			(x2 + w, -y2	, 1, 0),
+			(x2,	 -y2 - h, 0, 1),
+			(x2 + w, -y2 - h, 1, 1),
+		};
+		
+	glEnableVertexAttribArray (CoordUniform);	
+	glBindBuffer (GL_ARRAY_BUFFER , vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(box), box, GL_DYNAMIC_DRAW);
+
+    
     glTexImage2D(
       GL_TEXTURE_2D,
       0,
@@ -97,29 +124,7 @@ void FTText::RenderText(const char *text, float x, float y, float SX, float SY)
       GL_UNSIGNED_BYTE,
       g->bitmap.buffer
     );
-     
-    float x2 = x + g->bitmap_left * SX;
-    float y2 = -y - g->bitmap_top * SY;
-    float w = g->bitmap.width * SX;
-    float h = g->bitmap.rows * SY;
- 
-    GLfloat box1[2][4] = 
-		{
-			x2   , -y2    ,
-			x2 + w, -y2    ,
-			x2    , -y2 - h,
-			x2 + w, -y2 - h
-		};
-   
     
-    GLfloat box[4] = {
-			(x2,	 -y2	, 0, 0),
-			(x2 + w, -y2	, 1, 0),
-			(x2,	 -y2 - h, 0, 1),
-			(x2 + w, -y2 - h, 1, 1),
-		};
-	glBindBuffer (GL_ARRAY_BUFFER , vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof (box), box, GL_DYNAMIC_DRAW);
     glDrawArrays (GL_TRIANGLE_STRIP , 0 , 4);
   /*  glEnableClientState (GL_VERTEX_ARRAY); 
 			glBindBuffer (GL_ARRAY_BUFFER , vbo);
@@ -144,12 +149,14 @@ void FTText::RenderText(const char *text, float x, float y, float SX, float SY)
 		glDisableClientState (GL_VERTEX_ARRAY);
 			glDisableClientState (GL_TEXTURE_COORD_ARRAY);
 	*/		
-			
+	glDisableVertexAttribArray (CoordUniform);		
 			 
  
     x += (g->advance.x >> 6) * SX;
     y += (g->advance.y >> 6) * SY;
   }
+  
+  glUseProgram(0);
 }
 
 void FTText::SetPixelSize(int size)

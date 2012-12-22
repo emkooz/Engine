@@ -128,6 +128,5 @@ GLuint Engine::LoadShaders (const char * vertex_file_path,const char * fragment_
 
         glDeleteShader(VertexShaderID);
         glDeleteShader(FragmentShaderID);
-
         return ProgramID;
 }

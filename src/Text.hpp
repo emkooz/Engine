@@ -1,10 +1,10 @@
-#include "Includes.hpp"
-
 class FTText
 {
 	public:
 	
 	FTText();
+	void Init();
+	
 	bool UseFont (const char * fp);
 	bool LoadTest();
 	void RenderText (const char * , float x , float y , float SX , float SY);
@@ -24,6 +24,9 @@ class FTText
 	
 	GLuint vbo;
 	GLuint uv;
+	
+	
+	std::vector <glm::vec2> uvs;
 	
 	GLuint shader;	
 	GLint CoordUniform;

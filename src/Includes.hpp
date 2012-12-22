@@ -34,5 +34,4 @@ static Cam Camera; // Camera class.
 static Keys Key; // Key input handling class.
 static ModelLoader obj; // Model loading class **TEMPORARY**
 static FTText Text; // Text class (not working yet fffff)
-
 #endif

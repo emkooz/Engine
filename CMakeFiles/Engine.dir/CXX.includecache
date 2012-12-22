@@ -60,11 +60,11 @@ GL/glfw.h
 Includes.hpp
 /home/bumrang/Engine/src/Includes.hpp
 
-/home/bumrang/Engine/src/Text.cpp
+/home/bumrang/Engine/src/Text.hpp
 Includes.hpp
 /home/bumrang/Engine/src/Includes.hpp
 
-/home/bumrang/Engine/src/Text.hpp
+/home/bumrang/Engine/src/main.cpp
 Includes.hpp
 /home/bumrang/Engine/src/Includes.hpp
 
